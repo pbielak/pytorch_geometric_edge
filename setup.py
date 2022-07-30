@@ -16,6 +16,7 @@ setup(
     long_description_content_type='text/markdown',
     python_requires='>=3.7',
     install_requires=[
+        'requests>=2.28.1',
         'networkx>=2.8.5',
         'torch>=1.10.0',
         'torch-geometric>=2.0.4',

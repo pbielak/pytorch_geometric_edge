@@ -1,4 +1,5 @@
 import os
+from typing import Callable, Optional
 
 import networkx as nx
 import torch
@@ -10,8 +11,8 @@ class DolphinSocialNetwork(InMemoryDataset):
     """Dolphin social network as used in the Line2vec paper."""
     URL = "http://www-personal.umich.edu/~mejn/netdata/dolphins.zip"
 
-    def __init__(self, root: str):
-        super().__init__(root=root)
+    def __init__(self, root: str, transform: Optional[Callable] = None):
+        super().__init__(root=root, transform=transform)
 
         self.data, self.slices = torch.load(f=self.processed_paths[0])
 

@@ -1,3 +1,5 @@
+from typing import Callable, Optional
+
 from torch_geometric.datasets import Planetoid
 
 
@@ -9,11 +11,12 @@ class PubMed(Planetoid):
     return False and the dataset will not get downloaded and processed.
     """
 
-    def __init__(self, root: str):
+    def __init__(self, root: str, transform: Optional[Callable] = None):
         super().__init__(
             root=root,
             name="PubMed",
             split="public",
+            transform=transform,
         )
 
     def download(self):

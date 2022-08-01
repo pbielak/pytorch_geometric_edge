@@ -1,3 +1,5 @@
+from typing import Callable, Optional
+
 import networkx as nx
 from torch_geometric.data import InMemoryDataset
 from torch_geometric.utils import from_networkx
@@ -6,8 +8,8 @@ from torch_geometric.utils import from_networkx
 class KarateClub(InMemoryDataset):
     """The Karate Club dataset as used in the Line2vec paper"""
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, transform: Optional[Callable] = None):
+        super().__init__(transform=transform)
 
         graph = nx.karate_club_graph()
 
@@ -27,5 +29,6 @@ class KarateClub(InMemoryDataset):
         data = from_networkx(G=graph)
         data.edge_weight = data.weight
         del data.weight
+        del data.club
 
         self.data, self.slices = self.collate([data])

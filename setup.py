@@ -22,7 +22,12 @@ setup(
         'torch-geometric>=2.0.4',
     ],
     extras_require={
-        'test': ['pytest'],
+        'test': [
+            'flake8',
+            'isort',
+            'pylint',
+            'pytest',
+        ],
     },
     packages=find_packages(),
 )

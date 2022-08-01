@@ -3,7 +3,7 @@ from typing import Callable, Optional
 
 import networkx as nx
 import torch
-from torch_geometric.data import download_url, extract_zip, InMemoryDataset
+from torch_geometric.data import InMemoryDataset, download_url, extract_zip
 from torch_geometric.utils import from_networkx
 
 

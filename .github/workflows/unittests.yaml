@@ -1,0 +1,42 @@
+name: Unittests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.8]
+        torch-version: [1.10.0]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install PyTorch ${{ matrix.torch-version }}+cpu
+        run: |
+            pip install torch==${{ matrix.torch-version}}+cpu -f https://download.pytorch.org/whl/torch_stable.html
+
+      - name: Install internal dependencies
+        run: |
+          pip install torch-scatter==2.0.9 torch-sparse==0.6.13 torch-cluster==1.6.0 torch-spline-conv==1.2.1 -f https://data.pyg.org/whl/torch-${{ matrix.torch-version }}+cpu.html
+
+      - name: Install main package
+        run: |
+          pip install -e .[test]
+
+      - name: Run tests
+        run: |
+          pytest

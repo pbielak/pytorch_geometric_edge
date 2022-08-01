@@ -5,7 +5,7 @@ from torch_geometric.data import InMemoryDataset
 from torch_geometric.utils import from_networkx
 
 
-class KarateClub(InMemoryDataset):
+class KarateClub(InMemoryDataset):  # pylint: disable=abstract-method
     """The Karate Club dataset as used in the Line2vec paper"""
 
     def __init__(self, transform: Optional[Callable] = None):

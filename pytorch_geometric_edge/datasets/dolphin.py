@@ -1,10 +1,8 @@
-import io
-import zipfile
+import os
 
 import networkx as nx
-import requests
 import torch
-from torch_geometric.data import InMemoryDataset
+from torch_geometric.data import download_url, extract_zip, InMemoryDataset
 from torch_geometric.utils import from_networkx
 
 
@@ -26,10 +24,9 @@ class DolphinSocialNetwork(InMemoryDataset):
         return ["data.pt"]
 
     def download(self):
-        r = requests.get(self.URL, stream=True)
-
-        with zipfile.ZipFile(io.BytesIO(r.content)) as zf:
-            zf.extractall(path=self.raw_dir)
+        path = download_url(url=self.URL, folder=self.raw_dir)
+        extract_zip(path, self.raw_dir)
+        os.unlink(path)
 
     def process(self):
         fname = self.raw_paths[0]

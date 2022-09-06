@@ -20,7 +20,7 @@ setup(
         'scikit-learn>=1.1.1',
         'networkx>=2.8.5',
         'torch>=1.10.0',
-        'torch-geometric>=2.0.4',
+        'torch-geometric==2.0.4',
     ],
     extras_require={
         'test': [

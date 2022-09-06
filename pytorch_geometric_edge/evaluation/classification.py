@@ -2,33 +2,39 @@
 from abc import ABC, abstractmethod
 from typing import Dict, List, Optional
 
+import numpy as np
 import torch
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
 
 
 def accuracy(
-    y_true: torch.Tensor,
-    y_pred: torch.Tensor,
-    y_score: torch.Tensor,
+    y_true: np.ndarray,
+    y_pred: np.ndarray,
+    y_score: np.ndarray,
 ) -> float:
-    return accuracy_score(y_true=y_true.numpy(), y_pred=y_pred.numpy())
+    return accuracy_score(y_true=y_true, y_pred=y_pred)
 
 
 def f1(
-    y_true: torch.Tensor,
-    y_pred: torch.Tensor,
-    y_score: torch.Tensor,
+    y_true: np.ndarray,
+    y_pred: np.ndarray,
+    y_score: np.ndarray,
 ) -> float:
-    return f1_score(y_true=y_true.numpy(), y_pred=y_pred.numpy())
+    return f1_score(y_true=y_true, y_pred=y_pred)
 
 
 def auc(
-    y_true: torch.Tensor,
-    y_pred: torch.Tensor,
-    y_score: torch.Tensor,
+    y_true: np.ndarray,
+    y_pred: np.ndarray,
+    y_score: np.ndarray,
 ) -> float:
-    return roc_auc_score(y_true=y_true.numpy(), y_score=y_score.numpy())
+    if len(np.unique(y_true)) > 2:
+        kwargs = dict(multi_class="ovr")
+    else:
+        kwargs = {}
+
+    return roc_auc_score(y_true=y_true, y_score=y_score, **kwargs)
 
 
 class BaseEdgeClassificationEvaluator(ABC):
@@ -116,7 +122,7 @@ class LogisticRegressionEvaluator(BaseEdgeClassificationEvaluator):
 
         for split_prefix, mask in splits:
             mtr = self.compute_metrics(
-                y_true=Y[mask],
+                y_true=Y[mask].numpy(),
                 y_pred=lr.predict(Z[mask]),
                 y_score=lr.predict_proba(Z[mask]),
             )

@@ -38,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: pip install isort
 
-      - name: Run Flake8
+      - name: Run ISort
         continue-on-error: true
         run: isort --check --diff .
 

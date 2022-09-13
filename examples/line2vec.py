@@ -60,6 +60,7 @@ def main():
     train_mask, test_mask = train_test_split(
         torch.arange(model.line_graph.num_nodes),
         stratify=model.line_graph.y,
+        test_size=0.8,
     )
 
     lr = 0.1
@@ -72,27 +73,29 @@ def main():
     loader = model.loader(batch_size=batch_size)
 
     for epoch in range(num_epochs):
-        optimizer.zero_grad()
-
         epoch_loss = 0
 
         for batch, pos_rw, neg_rw in loader:
-            epoch_loss += model.loss(
+            optimizer.zero_grad()
+
+            loss = model.loss(
                 batch=batch,
                 edge_emb=model(batch),
                 pos_rw=pos_rw,
                 neg_rw=neg_rw,
             )
 
-        epoch_loss /= len(loader)
-        epoch_loss.backward()
-        optimizer.step()
+            loss.backward()
+            optimizer.step()
+
+            epoch_loss += loss.item()
 
         if epoch == 0 or (epoch + 1) % evaluation_interval == 0:
+            avg_loss = epoch_loss / len(loader)
             metrics = evaluate(model, train_mask, test_mask)
 
-            print(f"--- Epoch {epoch:02d} --- ")
-            print(f"Avg loss: {epoch_loss.detach().item():.3f}")
+            print(f"--- Epoch {epoch:02d} ---")
+            print(f"Avg loss: {avg_loss:.3f}")
             print("Metrics:", metrics)
             print("------------------")
 

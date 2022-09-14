@@ -4,9 +4,9 @@ from torch import nn
 from torch.nn import functional as F
 from torch_geometric.transforms import RandomLinkSplit
 
-from pytorch_geometric_edge.datasets import Cora
-from pytorch_geometric_edge.nn import Node2Edge, Node2Edge2NodeBlock
-from pytorch_geometric_edge.transforms import MatchingNodeLabelsTransform
+from torch_geometric_edge.datasets import Cora
+from torch_geometric_edge.nn import Node2Edge, Node2Edge2NodeBlock
+from torch_geometric_edge.transforms import MatchingNodeLabelsTransform
 
 
 class Model(nn.Module):

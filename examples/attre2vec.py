@@ -5,15 +5,15 @@ from torch_geometric import seed_everything
 from torch_geometric.transforms import Compose
 from tqdm import tqdm
 
-from pytorch_geometric_edge.datasets import Cora
-from pytorch_geometric_edge.evaluation import LogisticRegressionEvaluator
-from pytorch_geometric_edge.models import (
+from torch_geometric_edge.datasets import Cora
+from torch_geometric_edge.evaluation import LogisticRegressionEvaluator
+from torch_geometric_edge.models import (
     AttrE2vec,
     AvgAggregator,
     EdgeEncoder,
     FeatureDecoder,
 )
-from pytorch_geometric_edge.transforms import (
+from torch_geometric_edge.transforms import (
     Doc2vecTransform,
     EdgeFeatureExtractorTransform,
     MatchingNodeLabelsTransform,

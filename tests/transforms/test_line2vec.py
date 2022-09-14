@@ -2,9 +2,9 @@ import tempfile
 
 import pytest
 
-from pytorch_geometric_edge import datasets as ds
-from pytorch_geometric_edge.transforms import Line2vecTransform
-from pytorch_geometric_edge.transforms.line2vec import _order_indices
+from torch_geometric_edge import datasets as ds
+from torch_geometric_edge.transforms import Line2vecTransform
+from torch_geometric_edge.transforms.line2vec import _order_indices
 
 
 def test_order_indices():

@@ -2,9 +2,9 @@ import torch
 from sklearn.model_selection import train_test_split
 from torch_geometric import seed_everything
 
-from pytorch_geometric_edge.datasets import KarateClub
-from pytorch_geometric_edge.evaluation import LogisticRegressionEvaluator
-from pytorch_geometric_edge.models import Line2vec, Node2vecParams
+from torch_geometric_edge.datasets import KarateClub
+from torch_geometric_edge.evaluation import LogisticRegressionEvaluator
+from torch_geometric_edge.models import Line2vec, Node2vecParams
 
 
 def evaluate(

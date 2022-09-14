@@ -1,6 +1,6 @@
 import tempfile
 
-from pytorch_geometric_edge.datasets import PubMed
+from torch_geometric_edge.datasets import PubMed
 
 
 def test_pubmed_sizes():

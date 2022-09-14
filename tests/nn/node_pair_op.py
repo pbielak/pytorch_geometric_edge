@@ -2,7 +2,7 @@ import pytest
 import torch
 from torch_geometric.data import Data
 
-from pytorch_geometric_edge.nn import (
+from torch_geometric_edge.nn import (
     AvgNodePairOp,
     HadamardNodePairOp,
     L1NodePairOp,

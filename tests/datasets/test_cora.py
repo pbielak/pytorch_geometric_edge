@@ -1,6 +1,6 @@
 import tempfile
 
-from pytorch_geometric_edge.datasets import Cora
+from torch_geometric_edge.datasets import Cora
 
 
 def test_cora_sizes():

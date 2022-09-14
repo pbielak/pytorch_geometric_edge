@@ -1,6 +1,6 @@
 import tempfile
 
-from pytorch_geometric_edge.datasets import DolphinSocialNetwork
+from torch_geometric_edge.datasets import DolphinSocialNetwork
 
 
 def test_dolphin_sizes():

@@ -6,15 +6,15 @@ from torch_geometric import seed_everything
 from torch_geometric.nn.models import Node2Vec  # pylint: disable=E0611
 from tqdm import tqdm
 
-from pytorch_geometric_edge.datasets import Cora
-from pytorch_geometric_edge.evaluation import LogisticRegressionEvaluator
-from pytorch_geometric_edge.nn import (
+from torch_geometric_edge.datasets import Cora
+from torch_geometric_edge.evaluation import LogisticRegressionEvaluator
+from torch_geometric_edge.nn import (
     AvgNodePairOp,
     HadamardNodePairOp,
     L1NodePairOp,
     L2NodePairOp,
 )
-from pytorch_geometric_edge.transforms import MatchingNodeLabelsTransform
+from torch_geometric_edge.transforms import MatchingNodeLabelsTransform
 
 
 def evaluate(

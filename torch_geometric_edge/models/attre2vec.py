@@ -3,7 +3,7 @@ from torch import nn
 from torch.nn import functional as F
 from torch.utils.data import DataLoader
 
-from pytorch_geometric_edge.samplers import AttrE2vecBatch, AttrE2vecSampler
+from torch_geometric_edge.samplers import AttrE2vecBatch, AttrE2vecSampler
 
 
 class AvgAggregator(nn.Module):

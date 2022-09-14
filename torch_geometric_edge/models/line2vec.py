@@ -6,7 +6,7 @@ from torch import nn
 from torch_geometric.data import Data
 from torch_geometric.nn.models import Node2Vec  # pylint: disable=E0611
 
-from pytorch_geometric_edge.transforms import Line2vecTransform
+from torch_geometric_edge.transforms import Line2vecTransform
 
 
 @dataclass(frozen=True)

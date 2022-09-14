@@ -5,7 +5,7 @@ with open("README.md", "r") as fin:
 
 
 setup(
-    name='pytorch_geometric_edge',
+    name='torch_geometric_edge',
     version='0.0.1',
     url='',
     license='MIT',

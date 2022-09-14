@@ -1,4 +1,4 @@
-from pytorch_geometric_edge.datasets import KarateClub
+from torch_geometric_edge.datasets import KarateClub
 
 
 def test_karateclub_sizes():

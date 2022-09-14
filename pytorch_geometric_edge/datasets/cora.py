@@ -19,6 +19,9 @@ class Cora(Planetoid):
             transform=transform,
         )
 
+        self.data.num_nodes = self.data.x.shape[0]
+        del self.data.train_mask, self.data.val_mask, self.data.test_mask
+
     def download(self):  # pylint: disable=useless-super-delegation
         super().download()
 

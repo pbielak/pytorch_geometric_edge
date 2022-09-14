@@ -1,3 +1,4 @@
+from .node2edge import Edge2Node, Node2Edge, Node2Edge2NodeBlock
 from .node_pair_op import (
     AvgNodePairOp,
     HadamardNodePairOp,
@@ -7,7 +8,10 @@ from .node_pair_op import (
 
 __all__ = [
     'AvgNodePairOp',
+    'Edge2Node',
     'HadamardNodePairOp',
     'L1NodePairOp',
     'L2NodePairOp',
+    'Node2Edge',
+    'Node2Edge2NodeBlock',
 ]

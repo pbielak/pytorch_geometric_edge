@@ -7,6 +7,7 @@ from .attre2vec import (
     GRUAggregator,
 )
 from .line2vec import Line2vec, Node2vecParams
+from .paire import PairE, PairEDefaultDecoder, PairEDefaultEncoder
 
 __all__ = [
     'AttrE2vec',
@@ -17,4 +18,7 @@ __all__ = [
     'GRUAggregator',
     'Line2vec',
     'Node2vecParams',
+    'PairE',
+    'PairEDefaultDecoder',
+    'PairEDefaultEncoder',
 ]

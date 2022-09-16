@@ -18,6 +18,7 @@ setup(
     install_requires=[
         'gensim>=4.2.0',
         'networkx>=2.8.5',
+        'pandas>=1.4.3',
         'requests>=2.28.1',
         'scikit-learn>=1.1.1',
         'torch>=1.10.0',

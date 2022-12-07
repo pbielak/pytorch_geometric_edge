@@ -22,7 +22,6 @@ jobs:
         run: pip install flake8
 
       - name: Run Flake8
-        continue-on-error: true
         run: flake8 .
 
   isort:
@@ -39,7 +38,6 @@ jobs:
         run: pip install isort
 
       - name: Run ISort
-        continue-on-error: true
         run: isort --check --diff .
 
   pylint:
@@ -56,6 +54,5 @@ jobs:
         run: pip install pylint
 
       - name: Run Pylint
-        continue-on-error: true
         run: pylint **/*.py
 

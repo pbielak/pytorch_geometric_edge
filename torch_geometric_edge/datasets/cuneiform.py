@@ -35,7 +35,10 @@ class Cuneiform(InMemoryDataset):
 
     def download(self):
         for fname in self.raw_file_names:
-            download_url(url=os.path.join(self.URL, fname), folder=self.raw_dir)
+            download_url(
+                url=os.path.join(self.URL, fname),
+                folder=self.raw_dir,
+            )
 
     @property
     def processed_dir(self) -> str:
